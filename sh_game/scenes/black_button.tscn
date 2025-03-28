@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://droa2vau7fiyp"]
+
+[ext_resource type="Texture2D" uid="uid://dmanew33fxpie" path="res://assets/sprites/black_butt.png" id="1_hdhjv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xsopm"]
+
+[node name="Blackbutton" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xsopm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hdhjv")

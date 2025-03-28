@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c787r1aydkj80"]
+
+[ext_resource type="Script" path="res://scripts/blue_bramka.gd" id="1_kpggy"]
+[ext_resource type="Texture2D" uid="uid://be5afgojsa0xk" path="res://assets/sprites/blue_brama.png" id="1_vertu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6c18"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b2ej"]
+size = Vector2(16, 48)
+
+[node name="BlueBramka" type="AnimatableBody2D"]
+script = ExtResource("1_kpggy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vertu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_n6c18")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_7b2ej")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

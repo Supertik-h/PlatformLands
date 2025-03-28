@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0dkuo0v3h5qy"]
+
+[ext_resource type="Texture2D" uid="uid://cjb7jjwce8ek7" path="res://assets/sprites/klucz.png" id="1_1r8rf"]
+[ext_resource type="Script" path="res://scripts/klucz.gd" id="1_rcfip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf3wk"]
+size = Vector2(12, 5.5)
+
+[node name="Klucz" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_rcfip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1r8rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bf3wk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

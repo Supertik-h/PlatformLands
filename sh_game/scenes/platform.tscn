@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://gwi5puyqfxqp"]
+
+[ext_resource type="Texture2D" uid="uid://bfehv5o2ptfmk" path="res://assets/sprites/DODATKI2.png" id="1_as6jp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo8am"]
+size = Vector2(32, 8)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_as6jp")
+region_enabled = true
+region_rect = Rect2(79.9224, 129.037, 32.3012, 11.3196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xo8am")
+one_way_collision = true

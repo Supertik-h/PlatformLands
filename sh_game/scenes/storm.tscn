@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8pfoog3a73ri"]
+
+[ext_resource type="Script" path="res://scripts/storm.gd" id="1_ivyk1"]
+[ext_resource type="Texture2D" uid="uid://b3oxy53kqcpta" path="res://assets/sprites/storm2.png" id="1_tojpf"]
+[ext_resource type="AudioStream" uid="uid://nvm23gdemih7" path="res://assets/music/pickup.mp3" id="3_obmx4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7lat"]
+
+[sub_resource type="Animation" id="Animation_ibwl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pickup:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kqt5q"]
+resource_name = "pickup"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pickup:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gss7w"]
+_data = {
+"RESET": SubResource("Animation_ibwl5"),
+"pickup": SubResource("Animation_kqt5q")
+}
+
+[node name="Storm" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ivyk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tojpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x7lat")
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_obmx4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gss7w")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

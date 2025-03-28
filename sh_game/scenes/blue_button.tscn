@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl1jkdsp7kirl"]
+
+[ext_resource type="Texture2D" uid="uid://ck7g234kpc43f" path="res://assets/sprites/blue_butt.png" id="1_1ukjb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3fv3"]
+
+[node name="BlueButton" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_h3fv3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ukjb")

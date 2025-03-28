@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbgtn47q0avdv"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_c0ltr"]
+[ext_resource type="Texture2D" uid="uid://dm0bnhffpj0r" path="res://assets/sprites/jungle tlo.jpg" id="1_ivf0h"]
+[ext_resource type="FontFile" uid="uid://bi2o234uj5uha" path="res://assets/fonts/go3v2.ttf" id="3_807lv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7w0rb"]
+texture = ExtResource("1_ivf0h")
+modulate_color = Color(0.479834, 0.479834, 0.479834, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3yje"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5y2qv"]
+bg_color = Color(0.576004, 0.429089, 0.201807, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u16m"]
+bg_color = Color(0.439062, 0.32258, 0.141415, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w07q"]
+bg_color = Color(0.79047, 0.606109, 0.327436, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(564, -277)
+script = ExtResource("1_c0ltr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-154, -300)
+theme_override_styles/panel = SubResource("StyleBoxTexture_7w0rb")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2"]
+clip_contents = true
+layout_direction = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 572.0
+offset_top = -260.0
+offset_right = 1395.0
+offset_bottom = 455.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 123
+alignment = 1
+
+[node name="start_button" type="Button" parent="CanvasLayer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3yje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5y2qv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6u16m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5w07q")
+text = "Start Game"
+
+[node name="options_button" type="Button" parent="CanvasLayer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3yje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5y2qv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6u16m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5w07q")
+text = "Options"
+
+[node name="exit_button" type="Button" parent="CanvasLayer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3yje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5y2qv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6u16m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5w07q")
+text = "Exit"
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1411.0
+offset_top = 222.0
+offset_right = 1444.0
+offset_bottom = 682.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_807lv")
+theme_override_font_sizes/font_size = 384
+text = "PlatformLands"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]

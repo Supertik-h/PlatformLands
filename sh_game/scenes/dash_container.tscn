@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfvvi7pgql54r"]
+
+[ext_resource type="Texture2D" uid="uid://b3oxy53kqcpta" path="res://assets/sprites/storm2.png" id="1_1s874"]
+[ext_resource type="Script" path="res://scripts/dash_container.gd" id="1_jkt6o"]
+[ext_resource type="FontFile" uid="uid://2phx1xtppahw" path="res://assets/fonts/Pixel Digivolve Italic.otf" id="2_fwke5"]
+
+[node name="dash_container" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jkt6o")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(98.3125, 433.313)
+scale = Vector2(4.58594, 4.58594)
+texture = ExtResource("1_1s874")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 391.0
+offset_right = 325.0
+offset_bottom = 494.0
+theme_override_fonts/font = ExtResource("2_fwke5")
+theme_override_font_sizes/font_size = 66
+text = "COS"

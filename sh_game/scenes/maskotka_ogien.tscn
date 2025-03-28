@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ehpswc38bmn"]
+
+[ext_resource type="Texture2D" uid="uid://ce0l6chvk4gr2" path="res://assets/sprites/maskotka_ogien.png" id="1_15n7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vm7s"]
+size = Vector2(20, 32)
+
+[node name="maskotka_ogien" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_15n7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7vm7s")

@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctm8f8fvdq7du"]
+
+[ext_resource type="Script" path="res://scripts/golem.gd" id="1_5gyne"]
+[ext_resource type="Texture2D" uid="uid://b61kkane40t52" path="res://assets/sprites/golem_animacja_pelna_chodzenie.png" id="1_qcg13"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sasc2"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjmn3"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7vki"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5j4a"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8tua"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54s4i"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1efyt"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7up2e"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke0s4"]
+atlas = ExtResource("1_qcg13")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klwyv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sasc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjmn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7vki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5j4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8tua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54s4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1efyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7up2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke0s4")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3onqv"]
+radius = 12.0
+height = 24.0
+
+[node name="Golem" type="CharacterBody2D" groups=["golems"]]
+script = ExtResource("1_5gyne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_klwyv")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.331957
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+rotation = -1.57074
+shape = SubResource("CapsuleShape2D_3onqv")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(14, 0)
+target_position = Vector2(0, 20)
+
+[node name="RayCastRight2D" type="RayCast2D" parent="."]
+position = Vector2(1, 0)
+target_position = Vector2(15, 0)
+
+[node name="RayCastLeft2D" type="RayCast2D" parent="."]
+position = Vector2(2, 0)
+target_position = Vector2(-18, 0)

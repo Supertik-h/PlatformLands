@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmb3pgkqhjki4"]
+
+[ext_resource type="Texture2D" uid="uid://c30gtia3mfx2m" path="res://assets/sprites/znikajaca-platforma.png" id="1_nd3o0"]
+[ext_resource type="Script" path="res://scripts/disappearing_platform.gd" id="1_qbc5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikbyj"]
+size = Vector2(36, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buiiy"]
+size = Vector2(32, 16)
+
+[node name="DisappearingPlatform" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_qbc5k")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_ikbyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_nd3o0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_buiiy")
+
+[node name="Timer" type="Timer" parent="StaticBody2D"]
+wait_time = 2.0
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_exited"]

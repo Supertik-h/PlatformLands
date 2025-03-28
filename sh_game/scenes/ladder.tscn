@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgq04cn82kh04"]
+
+[ext_resource type="Script" path="res://scripts/ladder.gd" id="1_cmjrm"]
+[ext_resource type="Texture2D" uid="uid://b0i46dq5vhr5p" path="res://assets/sprites/world_tileset.png" id="1_ev2sh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf21m"]
+size = Vector2(14, 20)
+
+[node name="Ladder" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_cmjrm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ev2sh")
+region_enabled = true
+region_rect = Rect2(144.917, 51.877, 14.2285, 12.2125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tf21m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

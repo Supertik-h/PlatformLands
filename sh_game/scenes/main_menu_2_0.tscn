@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnbnuvydme5bo"]
+
+[ext_resource type="Texture2D" uid="uid://bnu1ecjhqhyqe" path="res://assets/bckground/DALL·E 2025-03-25 13.44.25 - A dark pixel art scene featuring ancient temple ruins at the center, surrounded by different biomes. To the left, a dense jungle with tall trees and v.webp" id="1_82h3n"]
+[ext_resource type="Script" path="res://scripts/main_menu_2_0.gd" id="1_1786m"]
+[ext_resource type="Texture2D" uid="uid://nls4a4hlj37e" path="res://assets/sprites/play_button.png" id="2_7mp5n"]
+[ext_resource type="Texture2D" uid="uid://ve7arsf3jqto" path="res://assets/sprites/play_button_pressed.png" id="3_gxnt7"]
+[ext_resource type="Texture2D" uid="uid://cafytcm21wtui" path="res://assets/sprites/back_button.png" id="4_p4vds"]
+[ext_resource type="Texture2D" uid="uid://brq4tjuip8coa" path="res://assets/sprites/back_button_hover.png" id="5_nypvl"]
+[ext_resource type="FontFile" uid="uid://bi2o234uj5uha" path="res://assets/fonts/go3v2.ttf" id="6_oo1et"]
+
+[sub_resource type="Theme" id="Theme_vworw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0f5he"]
+load_path = "res://.godot/imported/play_button_hover.png-73780a2c0b97dd99a974b97d7e70650d.ctex"
+
+[node name="MainMenu2_0" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1786m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_vworw")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 3864.0
+offset_bottom = 2208.0
+texture = ExtResource("1_82h3n")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -152.0
+offset_right = 264.0
+offset_bottom = 368.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_7mp5n")
+texture_pressed = ExtResource("3_gxnt7")
+texture_hover = SubResource("CompressedTexture2D_0f5he")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer2"]
+offset_left = 2240.0
+offset_top = 1056.0
+offset_right = 2496.0
+offset_bottom = 1312.0
+texture_normal = ExtResource("4_p4vds")
+texture_pressed = ExtResource("5_nypvl")
+texture_hover = ExtResource("5_nypvl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 472.0
+offset_top = 240.0
+offset_right = -480.0
+offset_bottom = -1544.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.415686)
+
+[node name="Label" type="Label" parent="CanvasLayer3"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1424.0
+offset_top = 208.0
+offset_right = 1431.0
+offset_bottom = 668.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_oo1et")
+theme_override_font_sizes/font_size = 384
+text = "PlatformLands"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/ExitButton" to="." method="_on_exit_button_pressed"]

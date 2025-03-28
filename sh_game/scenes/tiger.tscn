@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://bw1splpabyk8c"]
+
+[ext_resource type="Texture2D" uid="uid://ba7gpxnmm0pwx" path="res://assets/sprites/Tygrysek.png" id="1_hksj6"]
+[ext_resource type="Texture2D" uid="uid://6trbksc3fv0m" path="res://assets/sprites/tiger_walking_animacja_dobra(1).png" id="2_ejw0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niuht"]
+atlas = ExtResource("1_hksj6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyqy6"]
+atlas = ExtResource("2_ejw0r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n35dc"]
+atlas = ExtResource("2_ejw0r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixxs6"]
+atlas = ExtResource("2_ejw0r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp3rw"]
+atlas = ExtResource("2_ejw0r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64irf"]
+atlas = ExtResource("2_ejw0r")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2mcwp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niuht")
+}],
+"loop": true,
+"name": &"sitting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyqy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n35dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixxs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp3rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64irf")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hhc0"]
+radius = 7.0
+
+[node name="Tiger" type="CharacterBody2D"]
+position = Vector2(0, -2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_2mcwp")
+animation = &"walking"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = -1.57157
+shape = SubResource("CapsuleShape2D_3hhc0")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(12, -1)
+target_position = Vector2(0, 20)
+
+[node name="RayCast2RightD2" type="RayCast2D" parent="."]
+target_position = Vector2(25, 0)
+
+[node name="RayCast2LeftD3" type="RayCast2D" parent="."]
+target_position = Vector2(-15, 0)

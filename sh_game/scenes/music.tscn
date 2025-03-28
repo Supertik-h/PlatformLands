@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3uwfrltxy1ry"]
+
+[ext_resource type="AudioStream" uid="uid://c0pbsjtxe7x5s" path="res://assets/music/jungle-ish-beat-for-video-games-314073.mp3" id="1_6ks4a"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="2_ktgsq"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_6ks4a")
+autoplay = true
+max_distance = 13823.0
+bus = &"Music"
+script = ExtResource("2_ktgsq")

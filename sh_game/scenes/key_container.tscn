@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://y6dejj6el2fv"]
+
+[ext_resource type="Script" path="res://scripts/key_container.gd" id="1_3lw4d"]
+[ext_resource type="Texture2D" uid="uid://cjb7jjwce8ek7" path="res://assets/sprites/klucz.png" id="2_xb7mx"]
+[ext_resource type="FontFile" uid="uid://2phx1xtppahw" path="res://assets/fonts/Pixel Digivolve Italic.otf" id="3_guw37"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_left = 64.0
+offset_top = 368.0
+offset_right = 104.0
+offset_bottom = 410.0
+script = ExtResource("1_3lw4d")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(50, -54)
+scale = Vector2(8.9375, 8.9375)
+texture = ExtResource("2_xb7mx")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -100.0
+offset_right = 264.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("3_guw37")
+theme_override_font_sizes/font_size = 66
+text = "dad"
